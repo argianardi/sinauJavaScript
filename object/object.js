@@ -180,8 +180,8 @@ console.log(person3); //{ fname: 'John', lname: 'Doe' }
 console.log("----------------- Check property");
 let makeUser = (name, age) => {
   return {
-    name: name,
-    age: age,
+    name,
+    age,
   };
 };
 
