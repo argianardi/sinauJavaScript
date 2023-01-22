@@ -14,6 +14,17 @@ penjelasan lebih lanjut [disini](https://www.youtube.com/watch?v=xIcXqKEUpAw)
 
 ## Data Types
 
+Tipe data adalah pengelompokan data berdasarkan isi dan sifatnya. Secara garis besar tipe data dapat dikategorikan menjadi tiga macam yaitu tipe data dasar (primitive data type), tipe data bentukan (composite data type) dan tipe data abstrak (abstract data type).
+
+- Integer <br>
+  Merupakan bilangan bulat (-1, -2, -3, 0, 1, 2, 3)
+- Float atau double (bilangan real) <br>
+  Merupakan bilangan yang mengandung pecahan desimal, seperti 3.45, 6.234.
+- Char <br>
+  Merupakan semua huruf yang ada di dalam alfabet, tanda baca, dan karakter spesial.
+  Bolean (logika) <br>
+  Merupakan tipe data logika yang hanya terdiri dari dua value, yaitu benar atau salah. Value benar biasanya ditulis true atau angka 1, sedangkan value salah ditulis dengan false atau 0
+
 ### Check a Data Type
 
 ` let x = "hello world";` <br>
@@ -144,7 +155,7 @@ di metode toPrecission juga bisa ditambahkan parameter yang mana parameter ini a
 
 #### ParseInt()
 
-Untuk mengembalikan argumentnya menjadi float
+Untuk mengembalikan argumentnya menjadi integer (bilangan bulat).
 
 `console.log(parseInt(2)); //2` <br>
 `console.log(typeof parseInt(2)); //number` <br>
@@ -235,7 +246,7 @@ morning("john"); //good morning john
 berikut format penulisannya:
 
 ```
-let namaFunction = (param1, param2) {
+let namaFunction = (param1, param2) => {
     block code
 }
 ```
@@ -452,27 +463,16 @@ car.stop(); //stop
 
 ### Cara Memanggil (acceess) Object
 
-Properti di dalam Object dapat dipanggil menggunakn dot(.) atau kurung siku([]). Untuk properi yang nama key-nya lebih dari satu kata hanya dapat diakses menggunakan kurung siku:
+Properti di dalam Object dapat dipanggil menggunakn dot(.) atau kurung siku([ ]). Untuk properi yang nama key-nya lebih dari satu kata hanya dapat diakses menggunakan kurung siku:
 
 ```
 let person4 = {
   "full name": "Eren Jeager",
   nickName: "Eren",
-  logIt: function () {
-    console.log(`${this.name} visited ${this.place} on ${this.time}`);
-  },
 };
 
 console.log(person4.nickName); //Eren
 console.log(person4["full name"]); //Eren Jeager
-person1.logIt(); //Eren visited Wakanda on saturday
-
-```
-
-Seperti yang terlihat diatas harus kita perhatikan untuk memanggil meethod dalam objeckt harus ditambahkan tanda kurung (), seperti berikut:
-
-```
-person1.logIt(); //Eren visited Wakanda on saturday
 ```
 
 ### Penggunaan key word This
@@ -537,8 +537,8 @@ Atau bisa juga dibuat seperti ini
 ```
 let makeUser = (name, age) => {
   return {
-    name: name,
-    age: age,
+    name,
+    age,
   };
 };
 
