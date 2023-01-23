@@ -193,6 +193,20 @@ Untuk mengembalikan argumentnya menjadi float
 `console.log(parseFloat("years 10")); //NaN` <br>
 `console.log(typeof parseFloat("years 10")); //number`
 
+## String
+
+String JavaScript digunakan untuk menyimpan dan memanipulasi teks.
+
+### String Length
+
+Untuk mencari panjang string kita bisa menggunakan property bawaan length:
+
+```
+let txt = "abscddfkdfkjskasfdfjerhjehrud";
+let txtLength = txt.length;
+console.log(txtLength); //29
+```
+
 ## Function
 
 ### Declaration Function
@@ -1143,17 +1157,24 @@ console.log(nums5.has(8)); //false
 
 ##### Union
 
-Yaitu mengelompokkan nilai diantara dua kelompok dengan mengabaikan duplikat pada nilai yang terdapat di kedua kelompok tersebut. Seperti contoh berikut mengumpulkan semua value yang terdapat di kelompok engineering dan freelancers berikut
+Yaitu mengelompokkan nilai diantara dua kelompok dengan mengabaikan duplikat pada nilai yang terdapat di kedua kelompok tersebut. Seperti contoh berikut mengumpulkan semua value yang terdapat di kelompok frontEnd dan backEnd berikut
 
 ```
 let frontEnd = ["eren", "itachi", "naruto", "sasuke", "sakura", "hinata", "kakasi", lee", "sikamaru", ];
 
 let backEnd = [ "mikasa", "armin", "luffy", "naruto", "kakasi", "sakura", "goku", "hinata", "boruto", "sasuke",];
-let programmer = new Set([...frontEnd, ...backEnd]);
+let setProgrammer = new Set([...frontEnd, ...backEnd]);
+let arrProgrammer = [...setProgrammer]
 
-console.log(frontEnd); //['eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru']
-console.log(backEnd); //['mikasa', 'armin', 'luffy',  'naruto', 'kakasi', 'sakura', 'goku',   'hinata', 'boruto', 'sasuke']
-console.log(programmer); //Set(14) {  'eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru', 'mikasa', 'armin', 'luffy', 'goku', 'boruto'}
+console.log(frontEnd);
+//['eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru']
+console.log(backEnd);
+//['mikasa', 'armin', 'luffy',  'naruto', 'kakasi', 'sakura', 'goku',   'hinata', 'boruto', 'sasuke']
+console.log(setProgrammer);
+//Set(14) {  'eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru', 'mikasa', 'armin', 'luffy', 'goku', 'boruto'}
+consoe.log(arrProgrammer)
+//['eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'shikamaru', 'mikasa', 'armin', 'luffy', 'kaksi', 'goku', 'boruto']
+
 ```
 
 #### Persimpangan
@@ -1161,55 +1182,13 @@ console.log(programmer); //Set(14) {  'eren', 'itachi', 'naruto', 'sasuke', 'sak
 Digunakan untuk mencari value yang ada di kedua kelompok, seperti contoh berikut:
 
 ```
-let frontEnd2 = new Set([
-  "eren",
-  "itachi",
-  "naruto",
-  "sasuke",
-  "sakura",
-  "hinata",
-  "kakasi",
-  "lee",
-  "sikamaru",
-]);
-let backEnd2 = new Set([
-  "mikasa",
-  "armin",
-  "luffy",
-  "naruto",
-  "kakasi",
-  "sakura",
-  "goku",
-  "hinata",
-  "boruto",
-  "sasuke",
-]);
+let frontEnd2 = new Set(["eren", "itachi", "naruto", "sasuke", "sakura", "hinata", "kakasi", "lee", "sikamaru",]);
+let backEnd2 = new Set(["mikasa", "armin", "luffy", "naruto", "kakasi", "sakura", "goku", "hinata", "boruto", "sasuke",]);
 
 console.log(frontEnd2);
-//Set(9) {
-//   'eren',
-//   'itachi',
-//   'naruto',
-//   'sasuke',
-//   'sakura',
-//   'hinata',
-//   'kakasi',
-//   'lee',
-//   'sikamaru'
-// }
+//Set(9) { 'eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru'}
 console.log(backEnd2);
-// Set(10) {
-//   'mikasa',
-//   'armin',
-//   'luffy',
-//   'naruto',
-//   'kakasi',
-//   'sakura',
-//   'goku',
-//   'hinata',
-//   'boruto',
-//   'sasuke'
-// }
+// Set(10) {'mikasa', 'armin', 'luffy', 'naruto', 'kakasi', 'sakura', 'goku', 'hinata','boruto', 'sasuke'}
 
 let intersection = new Set([...frontEnd2].filter((x) => backEnd2.has(x)));
 console.log(intersection); //Set(5) { 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi' }
