@@ -83,3 +83,24 @@ const yonko = ["Big Mom", "Shirohige", "Shanks", "Kaido"];
 console.log(typeof yonko); //object
 console.log(Array.isArray(yonko)); //true
 console.log(yonko instanceof Array); //true
+
+console.log("-------------------------- Map mengelola angka -----------");
+
+let angka = [1, 2, 3, 4, 5, 6];
+let dobel = angka.map((x) => {
+  return x * 2;
+});
+console.log(dobel); //[ 2, 4, 6, 8, 10, 12 ]
+
+console.log("-------------------------- filter bilangan ganjil -----------");
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let ganjil = values.filter((x) => x % 2 === 1);
+console.log(ganjil);
+
+console.log("------------------- Reduce (penjumlahan seluruh elemen)");
+const values2 = [1, 2, 3, 4, 5];
+const result = values2.reduce((previousVal, currentVal) => {
+  return previousVal + currentVal;
+});
+
+console.log(result); // 15

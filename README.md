@@ -207,6 +207,31 @@ let txtLength = txt.length;
 console.log(txtLength); //29
 ```
 
+### Escape Character
+
+Escape character digunakan untuk membuat karakter yang tidak bisa diketik menggunakan keyboard. Berikut adalah escape sequence yang paling umum digunakan.
+
+- \' digunakan untuk membuat tanda kutip tunggal (')
+
+  ```
+  let str2 = "it's nice day";
+  console.log(str2);
+  ```
+
+- \" digunakan untuk membuat tanda kutip ganda (")
+
+  ```
+  let str = 'we are "the best programmers"';
+  console.log(str); //we are "the best programmers"
+  ```
+
+- \\\ digunakan untuk membuat backslash tunggal (\\)
+- \n digunakan untuk membuat baris baru
+- \t digunakan untuk membuat horizontal tabular
+- \v digunakan untuk membuat vertical tabular
+- \r digunakan untuk membuat carriage-return
+- \b digunakan untuk membuat backspace
+
 ## Function
 
 ### Declaration Function
@@ -387,7 +412,6 @@ console.log(txt2);
 Cara termudah untuk menambahkan elemen baru ke dalam array adalah menggunakan metode push() :
 
 ```
-
 const hokage = [
   "Hashirama",
   "Tobirama",
@@ -437,6 +461,41 @@ console.log(yonko instanceof Array); //true
 ```
 
 Operator ini jugan akan mereturn true jika variabel yang dituju dibuat dengan konstruktor tertentu (dalam hal ini Array), dan akan mereturn false jika sebaliknya
+
+## Map
+
+Merupakan method yang digunakan untuk mengelola semua elemen di dalam suatu array menjadi elemen dengan nilai yang baru dan mengumpulkannya lagi kedalam array baru. Berikut contoh penggunaannya di code:
+
+```
+let angka = [1, 2, 3, 4, 5, 6];
+let dobel = angka.map((x) => {
+  return x * 2;
+});
+console.log(dobel); //[ 2, 4, 6, 8, 10, 12 ]
+```
+
+## Filter
+
+Merupakan method berfungsi untuk mencari/menyeleksi semua elemen di dalam array yang sesuai dengan kriteria tertentu dan mengumpulkan elemen yang terseleksi ke dalam array baru.
+
+```
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let ganjil = values.filter((x) => x % 2 === 1);
+console.log(ganjil); //[ 1, 3, 5, 7, 9 ]
+```
+
+## Reduce
+
+Merupakan method yang digunaka untuk mengakalkulasi semua elemen dalam array dan nantinya hanya akan menghasilkan satu value saja. Reduce merupakan method yang mengeksekusi fungsi callback pada setiap elemen array, nilai hasil kalkulasi pada elemen sebelumnya digunakan untuk melakukan kalkulasi pada elemen berikutnya. Berikut contoh penggunaannya di coding:
+
+```
+const values = [1, 2, 3, 4, 5];
+const result = values.reduce((previousVal, currentVal) => {
+  return previousVal + currentVal;
+});
+
+console.log(result); // 15
+```
 
 ## Object
 
