@@ -817,3 +817,16 @@ fruits3.set(oranges, 200);
 
 console.log(fruits3.get(apples)); //500
 console.log(fruits3.get(bananas)); //300
+
+console.log("---------------- cara baru menambahkan value di object");
+
+let obj = {};
+
+obj[5] = 2;
+console.log(obj); // { '5': 2 }
+
+obj[5] = 3;
+console.log(obj); //{ '5': 3 }
+
+obj[5] = "lima";
+console.log(obj); //{ '5': 'lima' }

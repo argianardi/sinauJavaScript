@@ -660,6 +660,23 @@ console.log(new Akatsuki("Kisame", "Doton", "Suiton"));
 //Akatsuki { nama: 'Kisame', mainJutsu: 'Doton', secondJutsu: 'Suiton' }
 ```
 
+#### Menggunakan kurung siku
+
+Tedapt cara lain untuk menambahkan value baru di dalam sebuah object bisa menggunakan tanda kurung siku seperti ini:
+
+```
+let obj = {};
+
+obj[5] = 2;
+console.log(obj); // { '5': 2 }
+
+obj[5] = 3;
+console.log(obj); //{ '5': 3 }
+
+obj[5] = "lima";
+console.log(obj); //{ '5': 'lima' }
+```
+
 ### For in Loop Object
 
 For in di dalam object digunakan untuk mengurai/memetakan semua properti di dalam object. Berikut syntaxnya:
