@@ -462,7 +462,7 @@ console.log(yonko instanceof Array); //true
 
 Operator ini jugan akan mereturn true jika variabel yang dituju dibuat dengan konstruktor tertentu (dalam hal ini Array), dan akan mereturn false jika sebaliknya
 
-## Map
+### Map
 
 Merupakan method yang digunakan untuk mengelola semua elemen di dalam suatu array menjadi elemen dengan nilai yang baru dan mengumpulkannya lagi kedalam array baru. Berikut contoh penggunaannya di code:
 
@@ -474,7 +474,7 @@ let dobel = angka.map((x) => {
 console.log(dobel); //[ 2, 4, 6, 8, 10, 12 ]
 ```
 
-## Filter
+### Filter
 
 Merupakan method berfungsi untuk mencari/menyeleksi semua elemen di dalam array yang sesuai dengan kriteria tertentu dan mengumpulkan elemen yang terseleksi ke dalam array baru.
 
@@ -484,7 +484,7 @@ let ganjil = values.filter((x) => x % 2 === 1);
 console.log(ganjil); //[ 1, 3, 5, 7, 9 ]
 ```
 
-## Reduce
+### Reduce
 
 Merupakan method yang digunaka untuk mengakalkulasi semua elemen dalam array dan nantinya hanya akan menghasilkan satu value saja. Reduce merupakan method yang mengeksekusi fungsi callback pada setiap elemen array, nilai hasil kalkulasi pada elemen sebelumnya digunakan untuk melakukan kalkulasi pada elemen berikutnya. Berikut contoh penggunaannya di coding:
 
@@ -495,6 +495,24 @@ const result = values.reduce((previousVal, currentVal) => {
 });
 
 console.log(result); // 15
+```
+
+### indexOf
+
+Merupakan method yang digunakan untuk mencari indeks dari elemen/value tertentu di dalam array. Jika elemen yang dicari lebih dari satu, yang dikembalikan adalah indeks pada elemen pertama. Berikut contoh penggunaannya di coding:
+
+```
+let ar = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
+console.log(ar.indexOf(2)); // 1
+```
+
+### lastIndexOf
+
+Merupakan method untuk mencari indeks dari kemunculan terakhir elemen/value tertentu di dalam array. Jika elemen yang dicari lebih dari satu, yang dikembalikan adalah indeks elemen terakhir.
+
+```
+let ar = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
+console.log(ar.lastIndexOf(2)); // 9
 ```
 
 ## Object

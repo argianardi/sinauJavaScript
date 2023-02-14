@@ -104,3 +104,13 @@ const result = values2.reduce((previousVal, currentVal) => {
 });
 
 console.log(result); // 15
+
+console.log("----------------------------- indexOf");
+
+let ar = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
+console.log(ar.indexOf(2)); // 1
+
+console.log("----------------------------- lastIndexOf");
+
+let ar2 = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
+console.log(ar2.lastIndexOf(2)); // 9
