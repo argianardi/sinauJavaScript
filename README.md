@@ -193,6 +193,45 @@ Untuk mengembalikan argumentnya menjadi float
 `console.log(parseFloat("years 10")); //NaN` <br>
 `console.log(typeof parseFloat("years 10")); //number`
 
+## String
+
+String JavaScript digunakan untuk menyimpan dan memanipulasi teks.
+
+### String Length
+
+Untuk mencari panjang string kita bisa menggunakan property bawaan length:
+
+```
+let txt = "abscddfkdfkjskasfdfjerhjehrud";
+let txtLength = txt.length;
+console.log(txtLength); //29
+```
+
+### Escape Character
+
+Escape character digunakan untuk membuat karakter yang tidak bisa diketik menggunakan keyboard. Berikut adalah escape sequence yang paling umum digunakan.
+
+- \' digunakan untuk membuat tanda kutip tunggal (')
+
+  ```
+  let str2 = "it's nice day";
+  console.log(str2);
+  ```
+
+- \" digunakan untuk membuat tanda kutip ganda (")
+
+  ```
+  let str = 'we are "the best programmers"';
+  console.log(str); //we are "the best programmers"
+  ```
+
+- \\\ digunakan untuk membuat backslash tunggal (\\)
+- \n digunakan untuk membuat baris baru
+- \t digunakan untuk membuat horizontal tabular
+- \v digunakan untuk membuat vertical tabular
+- \r digunakan untuk membuat carriage-return
+- \b digunakan untuk membuat backspace
+
 ## Function
 
 ### Declaration Function
@@ -368,12 +407,91 @@ console.log(txt2);
 // mango
 ```
 
-### Adding Array Element
+### How to Recognize an Array
+
+Saat kita menggunakan operator typeof untuk mencari tahu apakah sebuah variabel array ata bukan, operator tersebut akan mereturn object
+
+```
+const yonko = ["Big Mom", "Shirohige", "Shanks", "Kaido"];
+console.log(typeof yonko); //object
+```
+
+Untuk mengatasi masalah ini ECMAScript 5 (JavaScript 2009) mendefinisikan metode Array.isArray():
+
+```
+console.log(Array.isArray(yonko)); //true
+```
+
+Method ini akan menggembalikan true jika variabel yang dimaksud benar array, dan akan mereturn false jika sebaliknya
+
+kita juga bisa menggunakan operator instanceof
+
+```
+console.log(yonko instanceof Array); //true
+```
+
+Operator ini jugan akan mereturn true jika variabel yang dituju dibuat dengan konstruktor tertentu (dalam hal ini Array), dan akan mereturn false jika sebaliknya
+
+### Map
+
+Merupakan method yang digunakan untuk mengelola semua elemen di dalam suatu array menjadi elemen dengan nilai yang baru dan mengumpulkannya lagi kedalam array baru. Berikut contoh penggunaannya di code:
+
+```
+let angka = [1, 2, 3, 4, 5, 6];
+let dobel = angka.map((x) => {
+  return x * 2;
+});
+console.log(dobel); //[ 2, 4, 6, 8, 10, 12 ]
+```
+
+### Filter
+
+Merupakan method berfungsi untuk mencari/menyeleksi semua elemen di dalam array yang sesuai dengan kriteria tertentu dan mengumpulkan elemen yang terseleksi ke dalam array baru.
+
+```
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let ganjil = values.filter((x) => x % 2 === 1);
+console.log(ganjil); //[ 1, 3, 5, 7, 9 ]
+```
+
+### Reduce
+
+Merupakan method yang digunaka untuk mengakalkulasi semua elemen dalam array dan nantinya hanya akan menghasilkan satu value saja. Reduce merupakan method yang mengeksekusi fungsi callback pada setiap elemen array, nilai hasil kalkulasi pada elemen sebelumnya digunakan untuk melakukan kalkulasi pada elemen berikutnya. Berikut contoh penggunaannya di coding:
+
+```
+const values = [1, 2, 3, 4, 5];
+const result = values.reduce((previousVal, currentVal) => {
+  return previousVal + currentVal;
+});
+
+console.log(result); // 15
+```
+
+### indexOf
+
+Merupakan method yang digunakan untuk mencari indeks dari elemen/value tertentu di dalam array. Jika elemen yang dicari lebih dari satu, yang dikembalikan adalah indeks pada elemen pertama. Berikut contoh penggunaannya di coding:
+
+```
+let ar = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
+console.log(ar.indexOf(2)); // 1
+```
+
+### lastIndexOf
+
+Merupakan method untuk mencari indeks dari kemunculan terakhir elemen/value tertentu di dalam array. Jika elemen yang dicari lebih dari satu, yang dikembalikan adalah indeks elemen terakhir.
+
+```
+let ar = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
+console.log(ar.lastIndexOf(2)); // 9
+```
+
+### Array Trick
+
+#### Menambahkan value baru
 
 Cara termudah untuk menambahkan elemen baru ke dalam array adalah menggunakan metode push() :
 
 ```
-
 const hokage = [
   "Hashirama",
   "Tobirama",
@@ -399,30 +517,108 @@ console.log(hokage);
 //['Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi', 'Naruto', 'Sarada' ]
 ```
 
-### How to Recognize an Array
+#### Mencari value terkecil dan terbesar
 
-Saat kita menggunakan operator typeof untuk mencari tahu apakah sebuah variabel array ata bukan, operator tersebut akan mereturn object
+Untuk mencari value terkecil dari value yang ada di dalam arrar dapat di lakukan menggunakan method `Math.min()`. Dan untuk mencari nilai terbesar dari value yang ada di dalam array dapat di lakukan menggunakan method `Math.max()`.
 
-```
-const yonko = ["Big Mom", "Shirohige", "Shanks", "Kaido"];
-console.log(typeof yonko); //object
-```
+#### Menghapus value dalam array (spesific value)
 
-Untuk mengatasi masalah ini ECMAScript 5 (JavaScript 2009) mendefinisikan metode Array.isArray():
+##### Menggunakan splice
 
-```
-console.log(Array.isArray(yonko)); //true
-```
+Untuk menghapus elemen di array menggunakan metode splice(), kita perlu menentukan dua parameter:
 
-Method ini akan menggembalikan true jika variabel yang dimaksud benar array, dan akan mereturn false jika sebaliknya
+- Indeks elemen yang akan dihapus
+- Jumlah elemen yang akan dihapus setelah indeks yang ditentukan
 
-kita juga bisa menggunakan operator instanceof
+Berikut adalah contoh penggunaannya di coding:
 
 ```
-console.log(yonko instanceof Array); //true
+const fruits = ['apple', 'banana', 'cherry', 'orange'];
+
+// Menghapus elemen 'banana' pada posisi ke-1 ('banana')
+fruits.splice(1, 1);
+console.log(fruits); // Output: ['apple', 'cherry', 'orange']
 ```
 
-Operator ini jugan akan mereturn true jika variabel yang dituju dibuat dengan konstruktor tertentu (dalam hal ini Array), dan akan mereturn false jika sebaliknya
+Pada code di atas, kita menggunakan metode splice() untuk menghapus satu elemen pada indeks ke-1 dari array fruits, yaitu elemen 'banana'. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 1, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+
+Kita juga dapat menggunakan metode splice() untuk menghapus beberapa elemen secara bersamaan, seperti contoh di bawah ini:
+
+```
+const fruits = ['apple', 'banana', 'cherry', 'orange'];
+
+// Menghapus dua elemen mulai dari posisi ke-1
+fruits.splice(1, 2);
+
+console.log(fruits); // Output: ['apple', 'orange']
+```
+
+Pada contoh di atas, kita menggunakan metode `splice()` untuk menghapus dua elemen dari posisi ke-1 pada array fruits, yaitu elemen `'banana'` dan `'cherry'`. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 2, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+
+#### Looping Dalam Array
+
+Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-elemen yang ada di dalam sebuah array.
+
+1. For Loop
+   Cara paling umum untuk melakukan looping pada sebuah array adalah dengan menggunakan for loop. Dalam for loop, kita menggunakan variabel yang berfungsi sebagai indeks untuk mengakses setiap elemen dalam array. Berikut adalah contoh penggunaan for loop untuk melakukan iterasi pada array:
+
+   ```
+   const fruits = ["apple", "banana", "orange"];
+
+   for (let i = 0; i < fruits.length; i++) {
+     console.log(fruits[i]);
+   }
+   ```
+
+2. For-Of Loop
+   For-Of Loop adalah bentuk loop yang lebih mudah dan lebih singkat daripada for loop. Loop ini memungkinkan kita untuk langsung mengakses nilai dari setiap elemen array. Berikut adalah contoh penggunaan for-of loop:
+
+   ```
+   const fruits = ["apple", "banana", "orange"];
+
+   for (const fruit of fruits) {
+     console.log(fruit);
+   }
+   ```
+
+3. ForEach Method
+   Metode forEach() adalah metode bawaan dari array JavaScript yang memungkinkan kita untuk melakukan operasi pada setiap elemen dalam array tanpa harus melakukan pengulangan secara eksplisit. Berikut adalah contoh penggunaan metode forEach() untuk melakukan iterasi pada array:
+
+   ```
+   const fruits = ["apple", "banana", "orange"];
+
+   fruits.forEach(function(fruit) {
+     console.log(fruit);
+   });
+   ```
+
+4. Map Method
+   Metode map() mirip dengan forEach(), tetapi selain melakukan iterasi pada setiap elemen array, map() juga mengembalikan array baru yang dihasilkan dari operasi yang kita lakukan pada setiap elemen array. Berikut adalah contoh penggunaan metode map() pada array:
+
+   ```
+   const numbers = [1, 2, 3, 4, 5];
+
+   const doubledNumbers = numbers.map(function(number) {
+     return number * 2;
+   });
+
+   console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+   ```
+
+5. While Loop
+   While loop pada dasarnya adalah sebuah pernyataan dalam pemrograman yang digunakan untuk melakukan pengulangan sejumlah kode tertentu selama kondisi yang ditentukan terpenuhi atau true. Jadi, jika kita ingin menggunakan while loop di dalam array JavaScript, kita dapat melakukan pengulangan sejumlah kode tertentu selama masih terdapat elemen dalam array. Berikut adalah contoh penggunaan while loop untuk mengakses dan melakukan operasi pada setiap elemen dalam sebuah array:
+
+   ```
+   const numbers = [1, 2, 3, 4, 5];
+   let i = 0;
+
+   while (i < numbers.length) {
+     console.log(numbers[i]); // menampilkan setiap elemen dalam array
+     i++;
+   }
+   ```
+
+   Pada contoh di atas, kita menggunakan while loop untuk mengakses setiap elemen dalam array numbers dan menampilkannya pada konsol. Kondisi while loop yang ditentukan adalah i < numbers.length, yang artinya pengulangan akan berlangsung selama nilai dari variabel i kurang dari panjang array numbers.
 
 ## Object
 
@@ -567,6 +763,23 @@ console.log(itachi);
 
 console.log(new Akatsuki("Kisame", "Doton", "Suiton"));
 //Akatsuki { nama: 'Kisame', mainJutsu: 'Doton', secondJutsu: 'Suiton' }
+```
+
+#### Menggunakan kurung siku
+
+Tedapt cara lain untuk menambahkan value baru di dalam sebuah object bisa menggunakan tanda kurung siku seperti ini:
+
+```
+let obj = {};
+
+obj[5] = 2;
+console.log(obj); // { '5': 2 }
+
+obj[5] = 3;
+console.log(obj); //{ '5': 3 }
+
+obj[5] = "lima";
+console.log(obj); //{ '5': 'lima' }
 ```
 
 ### For in Loop Object
@@ -1143,17 +1356,24 @@ console.log(nums5.has(8)); //false
 
 ##### Union
 
-Yaitu mengelompokkan nilai diantara dua kelompok dengan mengabaikan duplikat pada nilai yang terdapat di kedua kelompok tersebut. Seperti contoh berikut mengumpulkan semua value yang terdapat di kelompok engineering dan freelancers berikut
+Yaitu mengelompokkan nilai diantara dua kelompok dengan mengabaikan duplikat pada nilai yang terdapat di kedua kelompok tersebut. Seperti contoh berikut mengumpulkan semua value yang terdapat di kelompok frontEnd dan backEnd berikut
 
 ```
 let frontEnd = ["eren", "itachi", "naruto", "sasuke", "sakura", "hinata", "kakasi", lee", "sikamaru", ];
 
 let backEnd = [ "mikasa", "armin", "luffy", "naruto", "kakasi", "sakura", "goku", "hinata", "boruto", "sasuke",];
-let programmer = new Set([...frontEnd, ...backEnd]);
+let setProgrammer = new Set([...frontEnd, ...backEnd]);
+let arrProgrammer = [...setProgrammer]
 
-console.log(frontEnd); //['eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru']
-console.log(backEnd); //['mikasa', 'armin', 'luffy',  'naruto', 'kakasi', 'sakura', 'goku',   'hinata', 'boruto', 'sasuke']
-console.log(programmer); //Set(14) {  'eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru', 'mikasa', 'armin', 'luffy', 'goku', 'boruto'}
+console.log(frontEnd);
+//['eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru']
+console.log(backEnd);
+//['mikasa', 'armin', 'luffy',  'naruto', 'kakasi', 'sakura', 'goku',   'hinata', 'boruto', 'sasuke']
+console.log(setProgrammer);
+//Set(14) {  'eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru', 'mikasa', 'armin', 'luffy', 'goku', 'boruto'}
+consoe.log(arrProgrammer)
+//['eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'shikamaru', 'mikasa', 'armin', 'luffy', 'kaksi', 'goku', 'boruto']
+
 ```
 
 #### Persimpangan
@@ -1161,55 +1381,13 @@ console.log(programmer); //Set(14) {  'eren', 'itachi', 'naruto', 'sasuke', 'sak
 Digunakan untuk mencari value yang ada di kedua kelompok, seperti contoh berikut:
 
 ```
-let frontEnd2 = new Set([
-  "eren",
-  "itachi",
-  "naruto",
-  "sasuke",
-  "sakura",
-  "hinata",
-  "kakasi",
-  "lee",
-  "sikamaru",
-]);
-let backEnd2 = new Set([
-  "mikasa",
-  "armin",
-  "luffy",
-  "naruto",
-  "kakasi",
-  "sakura",
-  "goku",
-  "hinata",
-  "boruto",
-  "sasuke",
-]);
+let frontEnd2 = new Set(["eren", "itachi", "naruto", "sasuke", "sakura", "hinata", "kakasi", "lee", "sikamaru",]);
+let backEnd2 = new Set(["mikasa", "armin", "luffy", "naruto", "kakasi", "sakura", "goku", "hinata", "boruto", "sasuke",]);
 
 console.log(frontEnd2);
-//Set(9) {
-//   'eren',
-//   'itachi',
-//   'naruto',
-//   'sasuke',
-//   'sakura',
-//   'hinata',
-//   'kakasi',
-//   'lee',
-//   'sikamaru'
-// }
+//Set(9) { 'eren', 'itachi', 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi', 'lee', 'sikamaru'}
 console.log(backEnd2);
-// Set(10) {
-//   'mikasa',
-//   'armin',
-//   'luffy',
-//   'naruto',
-//   'kakasi',
-//   'sakura',
-//   'goku',
-//   'hinata',
-//   'boruto',
-//   'sasuke'
-// }
+// Set(10) {'mikasa', 'armin', 'luffy', 'naruto', 'kakasi', 'sakura', 'goku', 'hinata','boruto', 'sasuke'}
 
 let intersection = new Set([...frontEnd2].filter((x) => backEnd2.has(x)));
 console.log(intersection); //Set(5) { 'naruto', 'sasuke', 'sakura', 'hinata', 'kakasi' }
