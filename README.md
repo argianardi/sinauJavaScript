@@ -521,6 +521,20 @@ console.log(hokage);
 
 Untuk mencari value terkecil dari value yang ada di dalam arrar dapat di lakukan menggunakan method `Math.min()`. Dan untuk mencari nilai terbesar dari value yang ada di dalam array dapat di lakukan menggunakan method `Math.max()`.
 
+Berikut contoh penggunaannya di coding:
+
+```
+const numbers = [5, 2, 8, 1, 9, 4];
+
+// mencari nilai terbesar
+const max = Math.max(...numbers);
+console.log(max); // output: 9
+
+// mencari nilai terkecil
+const min = Math.min(...numbers);
+console.log(min); // output: 1
+```
+
 #### Menghapus value dalam array (spesific value)
 
 ##### Menggunakan splice
@@ -559,7 +573,7 @@ Pada contoh di atas, kita menggunakan metode `splice()` untuk menghapus dua elem
 
 Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-elemen yang ada di dalam sebuah array.
 
-1. For Loop
+1. For Loop <br/>
    Cara paling umum untuk melakukan looping pada sebuah array adalah dengan menggunakan for loop. Dalam for loop, kita menggunakan variabel yang berfungsi sebagai indeks untuk mengakses setiap elemen dalam array. Berikut adalah contoh penggunaan for loop untuk melakukan iterasi pada array:
 
    ```
@@ -570,7 +584,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    }
    ```
 
-2. For-Of Loop
+2. For-Of Loop <br/>
    For-Of Loop adalah bentuk loop yang lebih mudah dan lebih singkat daripada for loop. Loop ini memungkinkan kita untuk langsung mengakses nilai dari setiap elemen array. Berikut adalah contoh penggunaan for-of loop:
 
    ```
@@ -581,7 +595,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    }
    ```
 
-3. ForEach Method
+3. ForEach Method <br/>
    Metode forEach() adalah metode bawaan dari array JavaScript yang memungkinkan kita untuk melakukan operasi pada setiap elemen dalam array tanpa harus melakukan pengulangan secara eksplisit. Berikut adalah contoh penggunaan metode forEach() untuk melakukan iterasi pada array:
 
    ```
@@ -592,7 +606,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    });
    ```
 
-4. Map Method
+4. Map Method <br/>
    Metode map() mirip dengan forEach(), tetapi selain melakukan iterasi pada setiap elemen array, map() juga mengembalikan array baru yang dihasilkan dari operasi yang kita lakukan pada setiap elemen array. Berikut adalah contoh penggunaan metode map() pada array:
 
    ```
@@ -605,7 +619,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
    ```
 
-5. While Loop
+5. While Loop <br/>
    While loop pada dasarnya adalah sebuah pernyataan dalam pemrograman yang digunakan untuk melakukan pengulangan sejumlah kode tertentu selama kondisi yang ditentukan terpenuhi atau true. Jadi, jika kita ingin menggunakan while loop di dalam array JavaScript, kita dapat melakukan pengulangan sejumlah kode tertentu selama masih terdapat elemen dalam array. Berikut adalah contoh penggunaan while loop untuk mengakses dan melakukan operasi pada setiap elemen dalam sebuah array:
 
    ```
