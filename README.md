@@ -407,36 +407,6 @@ console.log(txt2);
 // mango
 ```
 
-### Adding Array Element
-
-Cara termudah untuk menambahkan elemen baru ke dalam array adalah menggunakan metode push() :
-
-```
-const hokage = [
-  "Hashirama",
-  "Tobirama",
-  "Hiruzen",
-  "Minato",
-  "Tsunade",
-  "Kakashi",
-];
-
-console.log(hokage);
-//[ 'Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi' ]
-
-hokage.push("Naruto");
-console.log(hokage);
-//['Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi', 'Naruto' ]
-```
-
-Elemen baru juga dapat ditambahkan ke array menggunakan properti length:
-
-```
-hokage[hokage.length] = "Sarada";
-console.log(hokage);
-//['Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi', 'Naruto', 'Sarada' ]
-```
-
 ### How to Recognize an Array
 
 Saat kita menggunakan operator typeof untuk mencari tahu apakah sebuah variabel array ata bukan, operator tersebut akan mereturn object
@@ -514,6 +484,141 @@ Merupakan method untuk mencari indeks dari kemunculan terakhir elemen/value tert
 let ar = [1, 2, 2, 3, 2, 4, 5, 6, 7, 2];
 console.log(ar.lastIndexOf(2)); // 9
 ```
+
+### Array Trick
+
+#### Menambahkan value baru
+
+Cara termudah untuk menambahkan elemen baru ke dalam array adalah menggunakan metode push() :
+
+```
+const hokage = [
+  "Hashirama",
+  "Tobirama",
+  "Hiruzen",
+  "Minato",
+  "Tsunade",
+  "Kakashi",
+];
+
+console.log(hokage);
+//[ 'Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi' ]
+
+hokage.push("Naruto");
+console.log(hokage);
+//['Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi', 'Naruto' ]
+```
+
+Elemen baru juga dapat ditambahkan ke array menggunakan properti length:
+
+```
+hokage[hokage.length] = "Sarada";
+console.log(hokage);
+//['Hashirama', 'Tobirama', 'Hiruzen', 'Minato', 'Tsunade', 'Kakashi', 'Naruto', 'Sarada' ]
+```
+
+#### Mencari value terkecil dan terbesar
+
+Untuk mencari value terkecil dari value yang ada di dalam arrar dapat di lakukan menggunakan method `Math.min()`. Dan untuk mencari nilai terbesar dari value yang ada di dalam array dapat di lakukan menggunakan method `Math.max()`.
+
+#### Menghapus value dalam array (spesific value)
+
+##### Menggunakan splice
+
+Untuk menghapus elemen di array menggunakan metode splice(), kita perlu menentukan dua parameter:
+
+- Indeks elemen yang akan dihapus
+- Jumlah elemen yang akan dihapus setelah indeks yang ditentukan
+
+Berikut adalah contoh penggunaannya di coding:
+
+```
+const fruits = ['apple', 'banana', 'cherry', 'orange'];
+
+// Menghapus elemen 'banana' pada posisi ke-1 ('banana')
+fruits.splice(1, 1);
+console.log(fruits); // Output: ['apple', 'cherry', 'orange']
+```
+
+Pada code di atas, kita menggunakan metode splice() untuk menghapus satu elemen pada indeks ke-1 dari array fruits, yaitu elemen 'banana'. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 1, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+
+Kita juga dapat menggunakan metode splice() untuk menghapus beberapa elemen secara bersamaan, seperti contoh di bawah ini:
+
+```
+const fruits = ['apple', 'banana', 'cherry', 'orange'];
+
+// Menghapus dua elemen mulai dari posisi ke-1
+fruits.splice(1, 2);
+
+console.log(fruits); // Output: ['apple', 'orange']
+```
+
+Pada contoh di atas, kita menggunakan metode `splice()` untuk menghapus dua elemen dari posisi ke-1 pada array fruits, yaitu elemen `'banana'` dan `'cherry'`. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 2, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+
+#### Looping Dalam Array
+
+Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-elemen yang ada di dalam sebuah array.
+
+1. For Loop
+   Cara paling umum untuk melakukan looping pada sebuah array adalah dengan menggunakan for loop. Dalam for loop, kita menggunakan variabel yang berfungsi sebagai indeks untuk mengakses setiap elemen dalam array. Berikut adalah contoh penggunaan for loop untuk melakukan iterasi pada array:
+
+   ```
+   const fruits = ["apple", "banana", "orange"];
+
+   for (let i = 0; i < fruits.length; i++) {
+     console.log(fruits[i]);
+   }
+   ```
+
+2. For-Of Loop
+   For-Of Loop adalah bentuk loop yang lebih mudah dan lebih singkat daripada for loop. Loop ini memungkinkan kita untuk langsung mengakses nilai dari setiap elemen array. Berikut adalah contoh penggunaan for-of loop:
+
+   ```
+   const fruits = ["apple", "banana", "orange"];
+
+   for (const fruit of fruits) {
+     console.log(fruit);
+   }
+   ```
+
+3. ForEach Method
+   Metode forEach() adalah metode bawaan dari array JavaScript yang memungkinkan kita untuk melakukan operasi pada setiap elemen dalam array tanpa harus melakukan pengulangan secara eksplisit. Berikut adalah contoh penggunaan metode forEach() untuk melakukan iterasi pada array:
+
+   ```
+   const fruits = ["apple", "banana", "orange"];
+
+   fruits.forEach(function(fruit) {
+     console.log(fruit);
+   });
+   ```
+
+4. Map Method
+   Metode map() mirip dengan forEach(), tetapi selain melakukan iterasi pada setiap elemen array, map() juga mengembalikan array baru yang dihasilkan dari operasi yang kita lakukan pada setiap elemen array. Berikut adalah contoh penggunaan metode map() pada array:
+
+   ```
+   const numbers = [1, 2, 3, 4, 5];
+
+   const doubledNumbers = numbers.map(function(number) {
+     return number * 2;
+   });
+
+   console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+   ```
+
+5. While Loop
+   While loop pada dasarnya adalah sebuah pernyataan dalam pemrograman yang digunakan untuk melakukan pengulangan sejumlah kode tertentu selama kondisi yang ditentukan terpenuhi atau true. Jadi, jika kita ingin menggunakan while loop di dalam array JavaScript, kita dapat melakukan pengulangan sejumlah kode tertentu selama masih terdapat elemen dalam array. Berikut adalah contoh penggunaan while loop untuk mengakses dan melakukan operasi pada setiap elemen dalam sebuah array:
+
+   ```
+   const numbers = [1, 2, 3, 4, 5];
+   let i = 0;
+
+   while (i < numbers.length) {
+     console.log(numbers[i]); // menampilkan setiap elemen dalam array
+     i++;
+   }
+   ```
+
+   Pada contoh di atas, kita menggunakan while loop untuk mengakses setiap elemen dalam array numbers dan menampilkannya pada konsol. Kondisi while loop yang ditentukan adalah i < numbers.length, yang artinya pengulangan akan berlangsung selama nilai dari variabel i kurang dari panjang array numbers.
 
 ## Object
 
