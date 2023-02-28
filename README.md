@@ -364,14 +364,6 @@ const tim8 = ["Akamaru", "Hinata", "Kiba", "Shino", "Kurenai"];
 console.log(tim8.length); //5
 ```
 
-### Accessing The First and Last Array Element
-
-```
-const timGai = ["Gai", "Neji", "Lee", "Tenten"];
-console.log(timGai[0]); //Gai
-console.log(timGai[timGai.length - 1]); //Tenten
-```
-
 ### Looping Array Elements
 
 ```
@@ -521,45 +513,96 @@ console.log(hokage);
 
 Untuk mencari value terkecil dari value yang ada di dalam arrar dapat di lakukan menggunakan method `Math.min()`. Dan untuk mencari nilai terbesar dari value yang ada di dalam array dapat di lakukan menggunakan method `Math.max()`.
 
+Berikut contoh penggunaannya di coding:
+
+```
+const numbers = [5, 2, 8, 1, 9, 4];
+
+// mencari nilai terbesar
+const max = Math.max(...numbers);
+console.log(max); // output: 9
+
+// mencari nilai terkecil
+const min = Math.min(...numbers);
+console.log(min); // output: 1
+```
+
 #### Menghapus value dalam array (spesific value)
 
-##### Menggunakan splice
+1. Menggunakan splice <br>
 
-Untuk menghapus elemen di array menggunakan metode splice(), kita perlu menentukan dua parameter:
+   Untuk menghapus elemen di array menggunakan metode splice(), kita perlu menentukan dua parameter:
 
-- Indeks elemen yang akan dihapus
-- Jumlah elemen yang akan dihapus setelah indeks yang ditentukan
+   - Indeks elemen yang akan dihapus
+   - Jumlah elemen yang akan dihapus setelah indeks yang ditentukan
 
-Berikut adalah contoh penggunaannya di coding:
+   Berikut adalah contoh penggunaannya di coding:
 
-```
-const fruits = ['apple', 'banana', 'cherry', 'orange'];
+   ```
+   const fruits = ['apple', 'banana', 'cherry', 'orange'];
 
-// Menghapus elemen 'banana' pada posisi ke-1 ('banana')
-fruits.splice(1, 1);
-console.log(fruits); // Output: ['apple', 'cherry', 'orange']
-```
+   // Menghapus elemen 'banana' pada posisi ke-1 ('banana')
+   fruits.splice(1, 1);
+   console.log(fruits); // Output: ['apple', 'cherry', 'orange']
+   ```
 
-Pada code di atas, kita menggunakan metode splice() untuk menghapus satu elemen pada indeks ke-1 dari array fruits, yaitu elemen 'banana'. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 1, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+   Pada code di atas, kita menggunakan metode splice() untuk menghapus satu elemen pada indeks ke-1 dari array fruits, yaitu elemen 'banana'. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 1, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
 
-Kita juga dapat menggunakan metode splice() untuk menghapus beberapa elemen secara bersamaan, seperti contoh di bawah ini:
+   Kita juga dapat menggunakan metode splice() untuk menghapus beberapa elemen secara bersamaan, seperti contoh di bawah ini:
 
-```
-const fruits = ['apple', 'banana', 'cherry', 'orange'];
+   ```
+   const fruits = ['apple', 'banana', 'cherry', 'orange'];
 
-// Menghapus dua elemen mulai dari posisi ke-1
-fruits.splice(1, 2);
+   // Menghapus dua elemen mulai dari posisi ke-1
+   fruits.splice(1, 2);
 
-console.log(fruits); // Output: ['apple', 'orange']
-```
+   console.log(fruits); // Output: ['apple', 'orange']
+   ```
 
-Pada contoh di atas, kita menggunakan metode `splice()` untuk menghapus dua elemen dari posisi ke-1 pada array fruits, yaitu elemen `'banana'` dan `'cherry'`. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 2, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+   Pada contoh di atas, kita menggunakan metode `splice()` untuk menghapus dua elemen dari posisi ke-1 pada array fruits, yaitu elemen `'banana'` dan `'cherry'`. Parameter pertama, yaitu 1, menunjukkan indeks elemen yang akan dihapus, dan parameter kedua, yaitu 2, menunjukkan jumlah elemen yang akan dihapus setelah indeks yang ditentukan.
+
+2. Metode pop() <br>
+   Metode pop() menghapus elemen terakhir dari array dan mengembalikan elemen tersebut. Berikut contoh penggunaannya di coding:
+
+   ```
+   let fruits = ['apple', 'banana', 'orange', 'mango'];
+   fruits.pop(); // menghapus 'mango'
+   console.log(fruits); // output: ['apple', 'banana', 'orange']
+   ```
+
+3. Metode shift() <br>
+   Metode shift() menghapus elemen pertama dari array dan mengembalikan elemen tersebut. Berikut contoh penggunaannya di coding:
+
+   ```
+   let fruits = ['apple', 'banana', 'orange', 'mango'];
+   fruits.shift(); // menghapus 'apple'
+   console.log(fruits); // output: ['banana', 'orange', 'mango']
+   ```
+
+4. Metode filter() <br>
+   Metode filter() membuat array baru yang berisi elemen-elemen yang melewati kondisi yang diberikan. Dalam kasus ini, kondisinya adalah tidak sama dengan nilai yang ingin dihapus. Berikut contoh penggunaannya di coding:
+
+   ```
+   let fruits = ['apple', 'banana', 'orange', 'mango'];
+   fruits = fruits.filter(fruit => fruit !== 'banana');
+   console.log(fruits); // output: ['apple', 'orange', 'mango']
+   ```
+
+5. Metode map()
+   Metode map() membuat array baru dengan hasil dari pemanggilan fungsi yang diberikan pada setiap elemen dalam array. Dalam kasus ini, fungsi tersebut mengembalikan nilai nol untuk nilai yang ingin dihapus dan nilai sebenarnya untuk nilai yang tidak ingin dihapus. Berikut contoh penggunaannya di coding:
+
+   ```
+   let fruits = ['apple', 'banana', 'orange', 'mango'];
+   fruits = fruits.map(fruit => fruit === 'banana' ? 0 : fruit);
+   fruits = fruits.filter(fruit => fruit !== 0);
+   console.log(fruits); // output: ['apple', 'orange', 'mango']
+   ```
 
 #### Looping Dalam Array
 
 Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-elemen yang ada di dalam sebuah array.
 
-1. For Loop
+1. For Loop <br/>
    Cara paling umum untuk melakukan looping pada sebuah array adalah dengan menggunakan for loop. Dalam for loop, kita menggunakan variabel yang berfungsi sebagai indeks untuk mengakses setiap elemen dalam array. Berikut adalah contoh penggunaan for loop untuk melakukan iterasi pada array:
 
    ```
@@ -570,7 +613,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    }
    ```
 
-2. For-Of Loop
+2. For-Of Loop <br/>
    For-Of Loop adalah bentuk loop yang lebih mudah dan lebih singkat daripada for loop. Loop ini memungkinkan kita untuk langsung mengakses nilai dari setiap elemen array. Berikut adalah contoh penggunaan for-of loop:
 
    ```
@@ -581,7 +624,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    }
    ```
 
-3. ForEach Method
+3. ForEach Method <br/>
    Metode forEach() adalah metode bawaan dari array JavaScript yang memungkinkan kita untuk melakukan operasi pada setiap elemen dalam array tanpa harus melakukan pengulangan secara eksplisit. Berikut adalah contoh penggunaan metode forEach() untuk melakukan iterasi pada array:
 
    ```
@@ -592,7 +635,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    });
    ```
 
-4. Map Method
+4. Map Method <br/>
    Metode map() mirip dengan forEach(), tetapi selain melakukan iterasi pada setiap elemen array, map() juga mengembalikan array baru yang dihasilkan dari operasi yang kita lakukan pada setiap elemen array. Berikut adalah contoh penggunaan metode map() pada array:
 
    ```
@@ -605,7 +648,7 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
    ```
 
-5. While Loop
+5. While Loop <br/>
    While loop pada dasarnya adalah sebuah pernyataan dalam pemrograman yang digunakan untuk melakukan pengulangan sejumlah kode tertentu selama kondisi yang ditentukan terpenuhi atau true. Jadi, jika kita ingin menggunakan while loop di dalam array JavaScript, kita dapat melakukan pengulangan sejumlah kode tertentu selama masih terdapat elemen dalam array. Berikut adalah contoh penggunaan while loop untuk mengakses dan melakukan operasi pada setiap elemen dalam sebuah array:
 
    ```
@@ -619,6 +662,17 @@ Di dalam JavaScript, terdapat beberapa cara untuk melakukan looping pada elemen-
    ```
 
    Pada contoh di atas, kita menggunakan while loop untuk mengakses setiap elemen dalam array numbers dan menampilkannya pada konsol. Kondisi while loop yang ditentukan adalah i < numbers.length, yang artinya pengulangan akan berlangsung selama nilai dari variabel i kurang dari panjang array numbers.
+
+#### Mengakses value pertama dan value terakhir array
+
+```
+// value pertama
+const timGai = ["Gai", "Neji", "Lee", "Tenten"];
+console.log(timGai[0]); //Gai
+
+// value terakhir
+console.log(timGai[timGai.length - 1]); //Tenten
+```
 
 ## Object
 
