@@ -2115,3 +2115,100 @@ async function displayGreeting() {
 }
 displayGreeting();
 ```
+
+## Algoritma Dasar Untuk Pengguna JavaScript
+
+### 1. Sorting Algorithm
+
+Sorting Algorithm merupakan algoritma pengurutan data yang sangat penting. Beberapa contoh sorting algorithm yang umum digunakan adalah bubble sort, insertion sort, selection sort, merge sort, dan quick sort.
+
+#### bubble sort
+
+Berikut contoh fungsi untuk mengurutkan array dari terkecil hingga terbesar menggunakan bubble sort.
+
+```
+function bubbleSort(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+let arr = [64, 34, 25, 12, 22, 11, 90];
+console.log(bubbleSort(arr)); // [11, 12, 22, 25, 34, 64, 90]
+```
+
+### 2. Searching Algorithm
+
+Searching Algorithm merupakan algoritma pencarian data. Beberapa contoh searching algorithm yang umum digunakan adalah linear search dan binary search.
+
+#### Lineart Search
+
+Berikut contoh fungsi untuk mencari nilai tertentu pada array menggunakan linear search.
+
+```
+function linearSearch(arr, x) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    if (arr[i] === x) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+let arr = [10, 20, 30, 40, 50, 60];
+let x = 50;
+console.log(linearSearch(arr, x)); // 4
+```
+
+### Recursion
+
+Recursion adalah teknik pemrograman yang memungkinkan sebuah fungsi untuk memanggil dirinya sendiri. Recursion biasanya digunakan untuk menyelesaikan masalah yang bisa dibagi menjadi sub-problem yang lebih kecil. Berikut contoh fungsi untuk menghitung bilangan faktorial menggunakan recursion.
+
+```
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+
+console.log(factorial(5)); // 120
+```
+
+### Data Structure
+
+Data Structure adalah struktur data yang digunakan untuk menyimpan dan mengorganisir data. Beberapa contoh data structure yang umum digunakan adalah array, object, stack, queue, dan linked list. Berikut contoh fungsi untuk menghapus elemen pada array menggunakan splice method.
+
+```
+let arr = ['apple', 'banana', 'cherry', 'orange'];
+arr.splice(2, 1);
+console.log(arr); // ['apple', 'banana', 'orange']
+```
+
+### Dynamic Programming
+
+Dynamic Programming adalah teknik pemrograman yang digunakan untuk menyelesaikan masalah yang bisa dibagi menjadi sub-problem yang lebih kecil, dan hasil sub-problem bisa digunakan untuk menyelesaikan masalah yang lebih besar. Berikut contoh fungsi untuk mencari bilangan Fibonacci menggunakan dynamic programming.
+
+```
+function fibonacci(n) {
+  let fibArr = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
+  }
+
+  return fibArr[n];
+}
+
+console.log(fibonacci(7)); // Output: 13
+```
