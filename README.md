@@ -2,6 +2,17 @@
 
 To learn fundamental javascript
 
+## Key word
+
+|                                                               |                                                        |                                                      |                                           |                                               |                                     |                                                   |                                             |                                                             |                                                |                                    |                                              |                                             |                             |                                                         |                                                                            |                                             |                                                                                                             |
+| ------------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------- | ----------------------------------------- | --------------------------------------------- | ----------------------------------- | ------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------- | ---------------------------------- | -------------------------------------------- | ------------------------------------------- | --------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [data types](#data-types)                                     | [check a data type](#check-a-data-type)                | [Tipe data number](#tipe-data-number)                | [integer dan float](#integer-dan-float)   | [angka spesial](#angka-spesial)               | [isNaN](#isnan)                     | [Number.isInteger()](#numberisinteger)            | [Number methods](#number-methods)           | [toString()](#tostring)                                     | [toExponential()](#toexponential)              | [toFixed](#tofixed)                | [toPrecission()](#toprecission)              | [ParseInt()](#parseint)                     | [parseFloat()](#parsefloat) | [String](#string)                                       | [String Length](#string-length)                                            | [Escape Character](#escape-character)       |
+| [String](#string)                                             | [String Length](#string-length)                        | [Escape character](#escape-character)                |
+| [Function](#function)                                         | [Declaration Function](#declaration-function)          | [Expression Function](#expression-function)          | [Arrow Function](#arrow-function)         |
+| [Array](#array)                                               | [Membuat Array](#membuat-array)                        | [Array Literal](#array-literal)                      | [Keyword New](#key-word)                  | [Access Array](#access-array)                 | [Length property](#length-property) | [Looping Array Elements](#looping-array-elements) | [type of array](#how-to-recognize-an-array) | [Map](#map)                                                 | [filter](#filter)                              | [Reduce](#reduce)                  | [indexOf](#indexof)                          | [lastIndexOf](#lastindexof)                 | [Array trick](#array-trick) | [Menambah value baru di Array](#menambahkan-value-baru) | [Menghapus value dalam array](#menghapus-value-dalam-array-spesific-value) | [Looping dalam array](#looping-dalam-array) | [Mengakses value pertama dan value terakhir dalam array](#mengakses-value-pertama-dan-value-terakhir-array) |
+| [Object](#object)                                             | [Cara memanggil objec](#cara-memanggil-acceess-object) | [Penggunaan keyword this](#penggunaan-key-word-this) | [For in loop object](#for-in-loop-object) | [Menambahkan properti](#menambahkan-properti) | [Check Properti](#check-properti)   | [Edit Properti](#edit-properti)                   | [Menghapus properti](#menghapus-properti)   | [Nested objects](#nested-objects)                           | [Konversi Object ke Array](#konversi-ke-array) | [JSON.stringify()](#jsonstringify) | [JSON.stringify Dates](#jsonstringify-dates) | [stringify functions](#stringify-functions) |
+| [Basic Algorithm](#algoritma-dasar-untuk-pengguna-javascript) | [Sorting Algorithm](#1-sorting-algorithm)              | [Searching Algorithm](#2-searching-algorithm)        | [Data Structure](#data-structure)         | [Dynamic Structure](#dynamic-programming)     | [Recursion](#recursion)             | [String Algorithm](#string-algorithm)             | [Graph Algorithm](#graph-algorithm)         | [Machine Learning Algorithms](#machine-learning-algorithms) |
+
 ## Install nodemon di linux
 
 `sudo npm install -g nodemon`
@@ -22,7 +33,7 @@ Tipe data adalah pengelompokan data berdasarkan isi dan sifatnya. Secara garis b
   Merupakan bilangan yang mengandung pecahan desimal, seperti 3.45, 6.234.
 - Char <br>
   Merupakan semua huruf yang ada di dalam alfabet, tanda baca, dan karakter spesial.
-  Bolean (logika) <br>
+- Bolean (logika) <br>
   Merupakan tipe data logika yang hanya terdiri dari dua value, yaitu benar atau salah. Value benar biasanya ditulis true atau angka 1, sedangkan value salah ditulis dengan false atau 0
 
 ### Check a Data Type
@@ -525,6 +536,38 @@ console.log(max); // output: 9
 // mencari nilai terkecil
 const min = Math.min(...numbers);
 console.log(min); // output: 1
+```
+
+Berikut cara lain untuk mencari nilai terbesar
+
+```
+function nilaiTerbesar(arr) {
+  let terbesar = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > terbesar) {
+      terbesar = arr[i];
+    }
+  }
+  return terbesar;
+}
+
+console.log(nilaiTerbesar([1, 3, 2, 7, 4, 9])); // Output: 9
+```
+
+Berikut cara lain untuk mencari nilai terkecil
+
+```
+function nilaiTerkecil(arr) {
+  let terkecil = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < terkecil) {
+      terkecil = arr[i];
+    }
+  }
+  return terkecil;
+}
+
+console.log(nilaiTerkecil([1, 3, 2, 7, 4, 9])); // Output: 1
 ```
 
 #### Menghapus value dalam array (spesific value)
@@ -2117,98 +2160,3 @@ displayGreeting();
 ```
 
 ## Algoritma Dasar Untuk Pengguna JavaScript
-
-### 1. Sorting Algorithm
-
-Sorting Algorithm merupakan algoritma pengurutan data yang sangat penting. Beberapa contoh sorting algorithm yang umum digunakan adalah bubble sort, insertion sort, selection sort, merge sort, dan quick sort.
-
-#### bubble sort
-
-Berikut contoh fungsi untuk mengurutkan array dari terkecil hingga terbesar menggunakan bubble sort.
-
-```
-function bubbleSort(arr) {
-  let len = arr.length;
-  for (let i = 0; i < len - 1; i++) {
-    for (let j = 0; j < len - i - 1; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let temp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = temp;
-      }
-    }
-  }
-  return arr;
-}
-
-let arr = [64, 34, 25, 12, 22, 11, 90];
-console.log(bubbleSort(arr)); // [11, 12, 22, 25, 34, 64, 90]
-```
-
-### 2. Searching Algorithm
-
-Searching Algorithm merupakan algoritma pencarian data. Beberapa contoh searching algorithm yang umum digunakan adalah linear search dan binary search.
-
-#### Lineart Search
-
-Berikut contoh fungsi untuk mencari nilai tertentu pada array menggunakan linear search.
-
-```
-function linearSearch(arr, x) {
-  let len = arr.length;
-  for (let i = 0; i < len; i++) {
-    if (arr[i] === x) {
-      return i;
-    }
-  }
-  return -1;
-}
-
-let arr = [10, 20, 30, 40, 50, 60];
-let x = 50;
-console.log(linearSearch(arr, x)); // 4
-```
-
-### Recursion
-
-Recursion adalah teknik pemrograman yang memungkinkan sebuah fungsi untuk memanggil dirinya sendiri. Recursion biasanya digunakan untuk menyelesaikan masalah yang bisa dibagi menjadi sub-problem yang lebih kecil. Berikut contoh fungsi untuk menghitung bilangan faktorial menggunakan recursion.
-
-```
-function factorial(n) {
-  if (n === 0) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
-}
-
-console.log(factorial(5)); // 120
-```
-
-### Data Structure
-
-Data Structure adalah struktur data yang digunakan untuk menyimpan dan mengorganisir data. Beberapa contoh data structure yang umum digunakan adalah array, object, stack, queue, dan linked list. Berikut contoh fungsi untuk menghapus elemen pada array menggunakan splice method.
-
-```
-let arr = ['apple', 'banana', 'cherry', 'orange'];
-arr.splice(2, 1);
-console.log(arr); // ['apple', 'banana', 'orange']
-```
-
-### Dynamic Programming
-
-Dynamic Programming adalah teknik pemrograman yang digunakan untuk menyelesaikan masalah yang bisa dibagi menjadi sub-problem yang lebih kecil, dan hasil sub-problem bisa digunakan untuk menyelesaikan masalah yang lebih besar. Berikut contoh fungsi untuk mencari bilangan Fibonacci menggunakan dynamic programming.
-
-```
-function fibonacci(n) {
-  let fibArr = [0, 1];
-
-  for (let i = 2; i <= n; i++) {
-    fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
-  }
-
-  return fibArr[n];
-}
-
-console.log(fibonacci(7)); // Output: 13
-```
