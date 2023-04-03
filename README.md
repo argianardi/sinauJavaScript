@@ -2160,3 +2160,187 @@ displayGreeting();
 ```
 
 ## Algoritma Dasar Untuk Pengguna JavaScript
+
+### 1. Sorting Algorithm
+
+Sorting Algorithm merupakan algoritma pengurutan data yang sangat penting. Beberapa contoh sorting algorithm yang umum digunakan adalah bubble sort, insertion sort, selection sort, merge sort, dan quick sort.
+
+#### bubble sort
+
+mengurutkan array dengan membandingkan dua angka secara berpasangan dan menukar posisi jika angka pertama lebih besar daripada angka kedua, dan melanjutkan ke pasangan angka berikutnya hingga seluruh array terurut. Berikut contoh fungsi untuk mengurutkan array dari terkecil hingga terbesar menggunakan bubble sort.
+
+```
+function bubbleSort(arr) {
+  let len = arr.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+
+let arr = [64, 34, 25, 12, 22, 11, 90];
+console.log(bubbleSort(arr)); // [11, 12, 22, 25, 34, 64, 90]
+```
+
+#### Selection sort
+
+mencari nilai terkecil dalam array dan menukar posisi nilai tersebut dengan nilai di indeks pertama. Kemudian mencari nilai terkecil kedua di dalam array dan menukarnya dengan nilai di indeks kedua, dan seterusnya hingga seluruh array terurut. Berikut contoh penggunaannya di code:
+
+```
+// Contoh kasus: Mengurutkan sebuah array dari terkecil ke terbesar menggunakan algoritma selection sort
+const arr = [3, 8, 11, 2, 9, 1];
+
+function selectionSort(array) {
+  const n = array.length;
+
+  for(let i = 0; i < n; i++) {
+    let minIndex = i;
+
+    for(let j = i+1; j < n; j++) {
+      if(array[j] < array[minIndex]) {
+        minIndex = j;
+      }
+    }
+
+    // Swap
+    let temp = array[minIndex];
+    array[minIndex] = array[i];
+    array[i] = temp;
+  }
+
+  return array;
+}
+
+console.log(selectionSort(arr)); // Output: [1, 2, 3, 8, 9, 11]
+```
+
+#### Merge Sort
+
+#### Quick Sort
+
+#### Heap Sort
+
+Perbedaan antara bubble sort dan selection sort adalah sebagai berikut:
+
+- Cara pengurutan <br>
+  Bubble sort membandingkan dua elemen tetangga dan menukar posisinya jika mereka tidak berada dalam urutan yang benar. Sedangkan selection sort memilih elemen dengan nilai terkecil pada setiap iterasi dan menukarnya dengan elemen pada posisi awal.
+- Kinerja <br>
+  Karena bubble sort memeriksa semua pasangan elemen secara berurutan pada setiap iterasi, algoritma ini membutuhkan waktu yang lebih lama daripada selection sort pada data yang lebih besar. Sebaliknya, selection sort memilih nilai minimum di setiap iterasi sehingga waktu eksekusi cenderung lebih cepat daripada bubble sort, terutama pada data yang lebih besar.
+- Kecepatan <br>
+  Bubble sort cenderung lebih lambat daripada selection sort dalam pengurutan data yang lebih besar karena setiap elemen harus dibandingkan dengan setiap elemen lain. Sedangkan selection sort melakukan sedikit pertukaran dengan memilih nilai minimum pada setiap iterasi dan menukarnya dengan elemen pada posisi awal.
+
+#### Insertion sort
+
+membagi array menjadi dua bagian, yaitu bagian yang sudah terurut dan bagian yang belum terurut. Kemudian memasukkan nilai pada bagian yang belum terurut ke dalam posisi yang tepat pada bagian yang sudah terurut.
+
+### 2. Searching Algorithm
+
+Searching Algorithm merupakan algoritma pencarian data. Beberapa contoh searching algorithm yang umum digunakan adalah linear search dan binary search.
+
+#### Lineart Search
+
+Mencari nilai tertentu dalam array dengan cara mengecek satu persatu setiap nilai pada array hingga menemukan nilai yang dicari. Berikut contoh fungsi untuk mencari nilai tertentu pada array menggunakan linear search.
+
+```
+function linearSearch(arr, x) {
+  let len = arr.length;
+  for (let i = 0; i < len; i++) {
+    if (arr[i] === x) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+let arr = [10, 20, 30, 40, 50, 60];
+let x = 50;
+console.log(linearSearch(arr, x)); // 4
+```
+
+#### Binary search
+
+Mencari nilai tertentu dalam array dengan cara membagi array menjadi dua bagian pada setiap langkah dan mencari nilai di bagian yang tepat berdasarkan nilai tengah dari setiap bagian.
+
+#### Hashing
+
+### Data Structure
+
+Data Structure adalah struktur data yang digunakan untuk menyimpan dan mengorganisir data. Beberapa contoh data structure yang umum digunakan adalah array, object, stack, queue, dan linked list. Berikut contoh fungsi untuk menghapus elemen pada array menggunakan splice method.
+
+```
+let arr = ['apple', 'banana', 'cherry', 'orange'];
+arr.splice(2, 1);
+console.log(arr); // ['apple', 'banana', 'orange']
+```
+
+### Dynamic Programming
+
+Dynamic Programming adalah teknik pemrograman yang digunakan untuk menyelesaikan masalah yang bisa dibagi menjadi sub-problem yang lebih kecil, dan hasil sub-problem bisa digunakan untuk menyelesaikan masalah yang lebih besar. Beberapa contoh algoritma pemrograman dinamis adalah Fibonacci sequence dan knapsack problem.
+
+- Fibonacci
+
+```
+function fibonacci(n) {
+  let fibArr = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    fibArr[i] = fibArr[i - 1] + fibArr[i - 2];
+  }
+
+  return fibArr[n];
+}
+
+console.log(fibonacci(7)); // Output: 13
+```
+
+- Knapsack Problem
+
+### Recursion
+
+Recursion adalah teknik pemrograman yang memungkinkan sebuah fungsi untuk memanggil dirinya sendiri. Recursion biasanya digunakan untuk menyelesaikan masalah yang bisa dibagi menjadi sub-problem yang lebih kecil. Berikut beberapa kasus yang diselesaikan menggunakan recursion:
+
+- Factorial
+
+  ```
+  function factorial(n) {
+    if (n === 0) {
+      return 1;
+    } else {
+      return n * factorial(n - 1);
+    }
+  }
+
+  console.log(factorial(5)); // 120
+  ```
+
+- Fibonacci <br>
+  Menghasilkan deret bilangan Fibonacci secara rekursif. Contohnya, deret bilangan Fibonacci dimulai dari 0, 1, 1, 2, 3, 5, 8, 13, 21, dan seterusnya.
+
+### String Algorithm
+
+Algoritma string digunakan untuk memanipulasi string. Beberapa algoritma string yang umum adalah string matching, regular expressions, dan parsing.
+
+#### String matching
+
+mencocokkan sebuah pola dengan teks yang lebih panjang dengan cara mengecek setiap karakter satu per satu dan membandingkannya dengan karakter pada pola.
+
+#### Regular Expression
+
+#### Parsing
+
+### Graph Algorithm
+
+Digunakan untuk memodelkan hubungan antara objek dalam bentuk graph. Beberapa algoritma graph yang umum adalah DFS, BFS, dan Dijkstra.
+
+- Depth-first search <br>
+  mencari semua simpul dalam grafik dengan cara mengeksplorasi cabang terdalam dari simpul yang sedang ditel
+
+### Machine Learning Algorithms
+
+Algoritma machine learning digunakan untuk membuat model prediksi berdasarkan data yang telah diinputkan sebelumnya. Beberapa contoh algoritma machine learning adalah decision trees, random forests, dan neural networks.
